@@ -20,7 +20,7 @@ module Github
       def find_repos
         response = connection.get(PATH) do |req|
           req.params['q'] = @query
-          req.params['per_page'] = 10
+          req.params['per_page'] = 100
         end
       rescue Faraday::ClientError => e
         OpenStruct.new(success?: false, error: e.message)
