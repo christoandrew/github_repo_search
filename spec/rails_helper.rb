@@ -2,6 +2,7 @@
 require 'spec_helper'
 require 'capybara_helper'
 require 'faraday'
+require 'github_mock_api'
 
 ENV['RAILS_ENV'] ||= 'test'
 
@@ -25,8 +26,6 @@ require 'rspec/rails'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-Dir[Rails.root.join('spec', 'services', '**', '*.rb')].each { |f| require f }
-Dir[Rails.root.join('spec/shared_contexts/*.rb')].each {|f| require f}
 
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods

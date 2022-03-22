@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'shared_contexts/github_mock_api'
 
 RSpec.feature "Repository searching", type: :feature, js: true do
   include_context "github_mock_api"

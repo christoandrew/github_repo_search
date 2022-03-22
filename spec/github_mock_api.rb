@@ -1,7 +1,7 @@
 RSpec.shared_context "github_mock_api" do
-  let(:stubs) do
+  let!(:stubs) do
     Faraday::Adapter::Test::Stubs.new do |stub|
-      stub.get('/search/repositories?per_page=10&q=') do
+      stub.get('/search/repositories?per_page=100&q=') do
         [
           422,
           { 'Content-Type': 'application/json' },
@@ -9,7 +9,7 @@ RSpec.shared_context "github_mock_api" do
         ]
       end
 
-      stub.get('/search/repositories?per_page=10&q=ruby') do
+      stub.get('/search/repositories?per_page=100&q=ruby') do
         [
           200,
           { 'Content-Type': 'application/json' },
@@ -18,7 +18,8 @@ RSpec.shared_context "github_mock_api" do
       end
     end
   end
-  let(:connection) do
+
+  let!(:connection) do
     Faraday.new do |b|
       b.adapter(:test, stubs)
       b.response :json
