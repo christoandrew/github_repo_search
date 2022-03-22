@@ -1,0 +1,20 @@
+.card
+  - if success
+    .card-body.text-center
+      %h4.card-title.m-b-0= "Showing results for #{query}"
+      %h6.card-subtitle= "Found #{data['total_count']} matches"
+    %ul.list-style-none
+      - data["items"].each do |item|
+        %li.d-flex.no-block.card-body.border-top
+          .w-30px.m-t-5
+            %img{src: "#{item["owner"]["avatar_url"]}", style: "width: 10px"}
+          %div
+            %a.m-b-0.font-medium.p-0= item["full_name"]
+            %span.text-muted= item["description"]
+
+  - else
+    .card-body.text-center
+      %h4.card-title.m-b-0= "Error performing query #{data[:error]}"
+
+
+

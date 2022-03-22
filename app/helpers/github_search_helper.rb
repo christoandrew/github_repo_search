@@ -1,0 +1,2 @@
+module GithubSearchHelper
+end

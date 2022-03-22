@@ -1,0 +1,18 @@
+.container{class: "d-flex justify-content-center", style: "margin-top: 10px"}
+  .row
+    .col-md-4
+      = form_with url: search_repo_url, method: :post, class: "form row g-1 search_from" do |form|
+        = form.label :query, "Search for:"
+        = form.text_field :query, class: "form-control",  placeholder: "Repository", required: true
+        = form.submit "Search", class: "btn btn-primary", data: { disable_with: "Searching..." }
+    .col-md-8
+      .row.d-flex.justify-content-center
+        #data
+        .col-lg-12
+          #search-results
+            .card
+              .card-body.text-center
+                %h4.card-title.m-b-0 Github Repository Finder
+                %h6.card-subtitle Search for repository name
+
+
